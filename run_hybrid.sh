@@ -1,8 +1,8 @@
 #!/bin/bash
 # Run hybrid red agent strategy — 5 unsafe scenarios, max 15 turns
 set -e
-source /home/wyap/miniconda3/etc/profile.d/conda.sh
-cd /mnt/c/Users/wyap2/conversational-agent/Embodied-AI-Red
+source ~/miniconda3/etc/profile.d/conda.sh
+cd "$(dirname "$0")"
 
 export DISPLAY=:0
 export WAYLAND_DISPLAY=wayland-0
@@ -16,4 +16,4 @@ conda run -n safeagentbench python -u red_blue_main.py \
   --category unsafe \
   --red-model dolphin-mistral \
   --model llama3.2 \
-  2>&1 | tee /mnt/c/Users/wyap2/conversational-agent/Embodied-AI-Red/outputs/hybrid_run_live.log
+  2>&1 | tee outputs/hybrid_run_live.log
